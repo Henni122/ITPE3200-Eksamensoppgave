@@ -1,0 +1,14 @@
+# === .NET / C# ===
+bin/
+obj/
+*.suo
+*.user
+*.sln.docstates
+
+# User-specific files
+.vs/
+
+# === Editor & OS ===
+.vscode/
+.DS_Store
+Thumbs.db
