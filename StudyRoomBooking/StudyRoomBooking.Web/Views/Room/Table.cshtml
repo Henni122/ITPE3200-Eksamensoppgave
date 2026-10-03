@@ -16,12 +16,18 @@
         @foreach (var room in Model)
         {
             <tr>
-                <td>@room.RoomId</td>
-                <td>@room.RoomName</td>
-                <td>@room.Capacity</td>
-                <td>@room.Building</td>
-                <td></td>
-            </tr>
+    <td>@room.RoomId</td>
+    <td>@room.RoomName</td>
+    <td>@room.Capacity</td>
+    <td>@room.Building</td>
+    <td>
+        <!-- Opens the Update page for the selected room -->
+        <a asp-action="Update"
+           asp-route-id="@room.RoomId">
+            Update
+        </a>
+    </td>
+</tr>
         }
     </table>
 
