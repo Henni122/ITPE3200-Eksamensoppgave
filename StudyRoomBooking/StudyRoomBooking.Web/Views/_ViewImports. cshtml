@@ -1,0 +1,3 @@
+@using StudyRoomBooking.Web
+@using StudyRoomBooking.Web.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
