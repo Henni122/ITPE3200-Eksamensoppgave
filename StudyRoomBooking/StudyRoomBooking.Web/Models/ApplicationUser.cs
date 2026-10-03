@@ -14,5 +14,7 @@ public class ApplicationUser : IdentityUser
     public string StudyProgram { get; set; } = string.Empty;
 
     //Navigation property
+    
+    public ICollection<RoomBooking> OrganizedBookings { get; set; } = new List<RoomBooking>();
     public ICollection<BookingParticipant> JoinedBookings { get; set; } = new List<BookingParticipant>();
 }
