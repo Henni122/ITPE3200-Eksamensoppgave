@@ -1,33 +1,51 @@
 using Microsoft.AspNetCore.Mvc;
+using StudyRoomBooking.Web.Data;
 using StudyRoomBooking.Web.Models;
 
 namespace StudyRoomBooking.Web.Controllers;
 
 public class RoomController : Controller
 {
+    //Controller gets access to the database 
+    private readonly ApplicationDbContext _applicationDbContext;
+
+    public RoomController(ApplicationDbContext applicationDbContext)
+    {
+        _applicationDbContext = applicationDbContext;
+    }
+
     public IActionResult Table()
     {
-        var rooms = new List<Room>();
-        var room1 = new Room
-        {
-            RoomId = 1,
-            RoomName = "Pc Room",
-            Capacity = 6,
-            Building = "P35"
-        };
+        //Get all rooms from database
+        List<Room> rooms = _applicationDbContext.Rooms.ToList();
 
-        var room2 = new Room
-        {
-            RoomId = 2,
-            RoomName = "Presentation Room",
-            Capacity = 15,
-            Building = "P34"
-        };
-
-        rooms.Add(room1);
-        rooms.Add(room2);
-
+        //View shows current page/view name
         ViewBag.CurrentViewName = "List of Rooms";
+
         return View(rooms);
+    }
+
+    [HttpGet]
+    public IActionResult Create()
+    {
+        //Shows form for creating a new room
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Room room)
+    {
+        //Check for valid data 
+        if (ModelState.IsValid)
+        {
+            //Add new room to database
+            _applicationDbContext.Rooms.Add(room);
+            //save changes to database
+            _applicationDbContext.SaveChanges();
+
+            return RedirectToAction(nameof(Table));
+        }
+        //If data is not valid, return to theform 
+        return View(room);
     }
 }
