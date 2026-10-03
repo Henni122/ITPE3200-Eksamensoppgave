@@ -12,3 +12,6 @@ obj/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Ignore downloaded client-side libraries
+**/wwwroot/lib
