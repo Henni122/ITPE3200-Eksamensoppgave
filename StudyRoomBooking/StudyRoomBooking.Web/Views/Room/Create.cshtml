@@ -1,0 +1,40 @@
+@model Room
+
+<h2>Create New Room</h2>
+
+<!-- Sends input to the Create method in RoomController -->
+<form asp-action="Create">
+
+    <div class="form-group">
+        <!-- Connects to Room.RoomName -->
+        <label asp-for="RoomName"></label><span class="text-danger">*</span>
+        <input asp-for="RoomName" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="RoomName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <!-- Connects to Room.Capacity -->
+        <label asp-for="Capacity"></label><span class="text-danger">*</span>
+        <input asp-for="Capacity" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="Capacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <!-- Connects to Room.Building -->
+        <label asp-for="Building"></label><span class="text-danger">*</span>
+        <input asp-for="Building" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="Building" class="text-danger"></span>
+    </div>
+
+    <!-- Submits the form -->
+    <button type="submit" class="btn btn-primary">Create</button>
+
+    <!-- Returns to the table view -->
+    <a asp-action="Table" class="btn btn-secondary">Back to Table View</a>
+</form>

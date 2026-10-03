@@ -1,0 +1,43 @@
+@model Room
+
+<h2>Update Room</h2>
+
+<!-- Sends updated room data to Update method in RoomController -->
+<form asp-action="Update">
+
+    <!-- Keeps RoomId when the form is submitted -->
+    <input type="hidden" asp-for="RoomId" />
+
+    <div class="form-group">
+        <!-- Connects to Room.RoomName -->
+        <label asp-for="RoomName"></label>
+        <input asp-for="RoomName" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="RoomName" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <!-- Connects to Room.Capacity -->
+        <label asp-for="Capacity"></label>
+        <input asp-for="Capacity" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="Capacity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <!-- Connects to Room.Building -->
+        <label asp-for="Building"></label>
+        <input asp-for="Building" class="form-control" />
+
+        <!-- Shows validation error message if input is invalid -->
+        <span asp-validation-for="Building" class="text-danger"></span>
+    </div>
+
+    <!-- Saves the updated room -->
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+
+    <!-- Returns to the room table -->
+    <a asp-action="Table" class="btn btn-secondary">Back to Table View</a>
+</form>

@@ -1,9 +1,19 @@
 @model IEnumerable<StudyRoomBooking.Web.Models.Room>
 
 <div class="container">
+    <!-- Shows current view name -->
     <h1>@ViewBag.CurrentViewName</h1>
-    <table class='table table-striped'>
-        <tr><th>Id</th><th>RoomName</th><th>Capacity</th><th>Building</th></tr>
+
+    <!-- Shows all rooms in a table -->
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>RoomName</th>
+            <th>Capacity</th>
+            <th>Building</th>
+            <th>Actions</th>
+        </tr>
+
         @foreach (var room in Model)
         {
             <tr>
@@ -11,8 +21,29 @@
                 <td>@room.RoomName</td>
                 <td>@room.Capacity</td>
                 <td>@room.Building</td>
-                <td></td>
+                <td>
+                    <!-- Opens the Update page for the selected room -->
+                    <a asp-action="Update"
+                       asp-route-id="@room.RoomId">
+                        Update
+                    </a>
+
+                    <!-- Opens the Delete page for the selected room -->
+                    <a asp-action="Delete"
+                       asp-route-id="@room.RoomId">
+                        Delete
+                    </a>
+                </td>
             </tr>
         }
     </table>
+
+    <!-- Opens the form for creating a new room -->
+    <p>
+        <a class="btn btn-secondary"
+           asp-controller="Room"
+           asp-action="Create">
+            Create New Room
+        </a>
+    </p>
 </div>
