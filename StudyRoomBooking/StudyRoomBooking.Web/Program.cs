@@ -9,6 +9,8 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.MapStaticAssets();
+
 app.MapDefaultControllerRoute();
 
 app.Run();
