@@ -15,3 +15,12 @@ Thumbs.db
 
 # Ignore downloaded client-side libraries
 **/wwwroot/lib
+
+# === Serilog logs ===
+Logs/
+*.log
+
+# === SQLite database ===
+*.db
+*.db-shm
+*.db-wal

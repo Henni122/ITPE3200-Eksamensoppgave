@@ -8,15 +8,22 @@ public class RoomController : Controller
 {
     //Gives the controller access to the database
     private readonly ApplicationDbContext _applicationDbContext;
+    //Adding a logger to the constructor
+    private readonly ILogger<RoomController> _logger;
 
-    public RoomController(ApplicationDbContext applicationDbContext)
+    public RoomController(ApplicationDbContext applicationDbContext, ILogger<RoomController> logger)
     {
         _applicationDbContext = applicationDbContext;
+        _logger = logger;
     }
 
     //READ - Shows all rooms
     public IActionResult Table()
     {
+        _logger.LogInformation("This is an information message");
+
+
+
         //Gets all rooms from the database
         List<Room> rooms = _applicationDbContext.Rooms.ToList();
 
@@ -46,6 +53,8 @@ public class RoomController : Controller
             // Saves the changes to the database
             _applicationDbContext.SaveChanges();
 
+            //Adding logger to log the acction
+            _logger.LogInformation("Created a new room with ID {RoomID}", room.RoomId);
             return RedirectToAction(nameof(Table));
         }
 
