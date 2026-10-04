@@ -19,17 +19,19 @@
             <tr>
                 <td>@room.RoomId</td>
                 <td>@room.RoomName</td>
-                <td>@room.Capacity</td>
-                <td>@room.Building</td>
+                <td>👥 @room.Capacity</td>
+                <td>📍 @room.Building</td>
                 <td>
                     <!-- Opens the Update page for the selected room -->
-                    <a asp-action="Update"
+                    <a class="btn btn-sm btn-outline-primary"
+                    asp-action="Update"
                        asp-route-id="@room.RoomId">
                         Update
                     </a>
 
                     <!-- Opens the Delete page for the selected room -->
-                    <a asp-action="Delete"
+                    <a class="btn btn-sm btn-outline-danger"
+                    asp-action="Delete"
                        asp-route-id="@room.RoomId">
                         Delete
                     </a>
@@ -40,7 +42,7 @@
 
     <!-- Opens the form for creating a new room -->
     <p>
-        <a class="btn btn-secondary"
+        <a class="btn btn-primary"
            asp-controller="Room"
            asp-action="Create">
             Create New Room
