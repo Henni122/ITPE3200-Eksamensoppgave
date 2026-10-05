@@ -2,6 +2,8 @@ using StudyRoomBooking.Web.Models;
 
 namespace StudyRoomBooking.Web.Data;
 
+
+// Describing what methods exists to use
 public interface IRoomRepository
 {
     IEnumerable<Room>? GetAll();

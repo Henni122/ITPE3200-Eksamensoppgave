@@ -17,8 +17,8 @@ public class RoomBooking
     [Required]
     [Display(Name = "End Time")]
     public DateTime EndTime { get; set; }
-[Required, StringLength(50)]
-public string Course { get; set; } = string.Empty;    // e.g. The course name for the booking.
+    [Required, StringLength(50)]
+    public string Course { get; set; } = string.Empty;    // e.g. The course name for the booking.
 
     [StringLength(500)]
     public string Description { get; set; } = string.Empty;
@@ -26,7 +26,7 @@ public string Course { get; set; } = string.Empty;    // e.g. The course name fo
 
     public Room Room { get; set; } = null!;
 
- // Who made the booking
+    // Who made the booking
     public string OrganizerId { get; set; } = string.Empty;
     public ApplicationUser Organizer { get; set; } = null!;
 
