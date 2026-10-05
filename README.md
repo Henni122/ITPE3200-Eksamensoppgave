@@ -127,55 +127,70 @@ A navigation bar is available throughout the application for quick access to the
 
 ## Project Structure
 
-```text
-StudyRoomBooking/
-
-├── StudyRoomBooking.slnx
-
-└── StudyRoomBooking.Web/
-
-    ├── Controllers/
-
-    │   ├── HomeController.cs
-
-    │   └── RoomController.cs
-
-    ├── Data/
-
-    │   └── ApplicationDbContext.cs
-
-    ├── Migrations/
-
-    ├── Models/
-
-    │   ├── ApplicationUser.cs
-
-    │   ├── BookingParticipant.cs
-
-    │   ├── Room.cs
-
-    │   └── RoomBooking.cs
-
-    ├── Views/
-
-    │   ├── Home/
-
-    │   ├── Room/
-
-    │   └── Shared/
-
-    ├── wwwroot/
-
-    │   └── images/
-
-    ├── Program.cs
-
-    ├── appsettings.json
-
-    ├── libman.json
-
-    └── StudyRoomBooking.Web.csproj
 ```
+ITPE3200-Eksamensoppgave
+├─ README.md
+└─ StudyRoomBooking
+   ├─ StudyRoomBooking.slnx
+   ├─ StudyRoomBooking.Web
+   │  ├─ appsettings.Development.json
+   │  ├─ appsettings.json
+   │  ├─ Controllers
+   │  │  ├─ HomeController.cs
+   │  │  └─ RoomController.cs
+   │  ├─ Data
+   │  │  ├─ ApplicationDbContext.cs
+   │  │  ├─ IRoomRepository.cs
+   │  │  └─ RoomRepository.cs
+   │  ├─ libman.json
+   │  ├─ Migrations
+   │  │  ├─ 20261003121143_InitialCreate.cs
+   │  │  ├─ 20261003121143_InitialCreate.Designer.cs
+   │  │  └─ ApplicationDbContextModelSnapshot.cs
+   │  ├─ Models
+   │  │  ├─ ApplicationUser.cs
+   │  │  ├─ BookingParticipant.cs
+   │  │  ├─ Room.cs
+   │  │  └─ RoomBooking.cs
+   │  ├─ Program.cs
+   │  ├─ Properties
+   │  │  └─ launchSettings.json
+   │  ├─ StudyRoomBooking.Web.csproj
+   │  ├─ Views
+   │  │  ├─ Home
+   │  │  │  └─ Index.cshtml
+   │  │  ├─ Room
+   │  │  │  ├─ Create.cshtml
+   │  │  │  ├─ Delete.cshtml
+   │  │  │  ├─ Table.cshtml
+   │  │  │  └─ Update.cshtml
+   │  │  ├─ Shared
+   │  │  │  ├─ _Layout.cshtml
+   │  │  │  └─ _Layout.cshtml.css
+   │  │  ├─ _ViewImports.cshtml
+   │  │  └─ _ViewStart.cshtml
+   │  └─ wwwroot
+   │     └─ images
+   │        ├─ K106.jpg
+   │        ├─ PE242.jpg
+   │        └─ PH356 Tone.jpg
+   └─ tests
+      └─ StudyRoomBooking.Tests
+         ├─ StudyRoomBooking.Tests.csproj
+         └─ UnitTest1.cs
+```
+Some files and folders are intentionally excluded from the repository through `.gitignore`.
+
+These include:
+
+- Build output such as `bin/` and `obj/`
+- User-specific Visual Studio files such as `.vs/`, `*.suo` and `*.user`
+- Editor and operating system files such as `.vscode/`, `.DS_Store` and `Thumbs.db`
+- Downloaded client-side libraries under `wwwroot/lib`
+- Serilog log files and the `Logs/` folder
+- Local SQLite database files such as `.db`, `.db-shm` and `.db-wal`
+
+These files are generated locally during development or when the application is running, and are therefore not included in the repository.
 
 ## How to Run the Application
 
@@ -295,3 +310,5 @@ Group members:
 - [Henni]
 - [Maryan]
 - [Christian]
+
+
