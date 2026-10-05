@@ -3,9 +3,16 @@ using StudyRoomBooking.Web.Models;
 namespace StudyRoomBooking.Web.Data;
 
 
+/*
+Repository for room data. Handles all database operations related to rooms
+and wraps them in try/catch so that controllers don't have to deal with
+database exceptions directly
+*/
 public class RoomRepository : IRoomRepository
 {
+    // EF Core database - gives us access to the Rooms table
     private readonly ApplicationDbContext _db;
+    // Logger for recording errors during database operation
     private readonly ILogger<RoomRepository> _logger;
 
     public RoomRepository(ApplicationDbContext db, ILogger<RoomRepository> logger)
@@ -14,7 +21,8 @@ public class RoomRepository : IRoomRepository
         _logger = logger; 
     }
 
-
+    // Return all rooms from the database 
+    // Returns null if the query fails
        public IEnumerable<Room>? GetAll()
     {
         try
@@ -28,6 +36,8 @@ public class RoomRepository : IRoomRepository
         }
     }
 
+    // Return a room with the given ID
+    // Or null if it does not exist, or the query fails
     public Room? GetRoomById(int id)
     {
         try
@@ -41,6 +51,7 @@ public class RoomRepository : IRoomRepository
         }
     }
 
+    // Adds a new room to the database
     public bool Create(Room room)
     {
         try
@@ -56,6 +67,7 @@ public class RoomRepository : IRoomRepository
         }
     }
 
+    // Updates an existing room in the database
     public bool Update(Room room)
     {
         try
@@ -71,6 +83,9 @@ public class RoomRepository : IRoomRepository
         }
     }
 
+
+    // Deletes the room with the given ID 
+    // Fails if the room does not exist or the deletion fails
     public bool Delete(int id)
     {
         try

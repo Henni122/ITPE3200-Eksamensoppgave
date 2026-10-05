@@ -13,7 +13,7 @@ public class ApplicationUser : IdentityUser
     public string LastName { get; set; } = string.Empty;
     public string StudyProgram { get; set; } = string.Empty;
 
-    //Navigation property
+    // Navigation property
     
     public ICollection<RoomBooking> OrganizedBookings { get; set; } = new List<RoomBooking>();
     public ICollection<BookingParticipant> JoinedBookings { get; set; } = new List<BookingParticipant>();
