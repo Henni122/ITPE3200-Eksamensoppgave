@@ -6,7 +6,7 @@
     <title>@ViewData["Title"] - StudyRoomBooking</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <script src="~/lib/jquery/dist/jquery.min.js" defer></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"defer></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
 </head>
 <body>
     <header>
@@ -35,5 +35,6 @@
             @RenderBody()
         </main>
     </div>
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

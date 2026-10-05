@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using StudyRoomBooking.Web.Data;
 using StudyRoomBooking.Web.Models;
 using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
         options.SignIn.RequireConfirmedAccount = false)
@@ -29,6 +32,8 @@ builder.Services.AddSerilog(config =>
 //End Serilog
 
 var app = builder.Build();
+
+// -- ERROR HANDLING START -- //
 
 if (app.Environment.IsDevelopment())
 {

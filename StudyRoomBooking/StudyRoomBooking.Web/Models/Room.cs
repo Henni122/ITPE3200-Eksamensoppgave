@@ -9,8 +9,9 @@ public class Room
     public int RoomId { get; set; }
 
     // Room name must be between 2 and 50 characters
+    [Required(ErrorMessage = "Room name is required")]
     [RegularExpression(
-         @"[\p{L}\p{N}. \-]{2,50}",
+         @"^[\p{L}\p{N}. \-]{2,50}",
         ErrorMessage = "Room name must be between 2 and 50 characters and contain only valid characters."
     )]
     [Display(Name = "Room name")]
@@ -22,7 +23,9 @@ public class Room
         100,
         ErrorMessage = "Capacity must be between 1 and 100."
     )]
-    public int Capacity { get; set; }
+
+    [Required]
+    public int? Capacity { get; set; } 
 
     // Building name must be between 2 and 50 characters
     [StringLength(
@@ -30,6 +33,8 @@ public class Room
         MinimumLength = 2,
         ErrorMessage = "Building must be between 2 and 50 characters."
     )]
+
+    [Required]
     public string Building { get; set; } = string.Empty;
 
     // Navigation property for bookings associated with the room
